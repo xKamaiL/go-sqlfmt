@@ -4,8 +4,8 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/kanmu/go-sqlfmt/sqlfmt/lexer"
-	"github.com/kanmu/go-sqlfmt/sqlfmt/parser/group"
+	"github.com/xkamail/go-sqlfmt/sqlfmt/lexer"
+	"github.com/xkamail/go-sqlfmt/sqlfmt/parser/group"
 )
 
 func TestParseTokens(t *testing.T) {

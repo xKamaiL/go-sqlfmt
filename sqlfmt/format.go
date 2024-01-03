@@ -6,10 +6,11 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/kanmu/go-sqlfmt/sqlfmt/lexer"
-	"github.com/kanmu/go-sqlfmt/sqlfmt/parser"
-	"github.com/kanmu/go-sqlfmt/sqlfmt/parser/group"
 	"github.com/pkg/errors"
+
+	"github.com/xkamail/go-sqlfmt/sqlfmt/lexer"
+	"github.com/xkamail/go-sqlfmt/sqlfmt/parser"
+	"github.com/xkamail/go-sqlfmt/sqlfmt/parser/group"
 )
 
 // Format formats src in 3 steps

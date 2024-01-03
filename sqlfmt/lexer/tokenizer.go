@@ -302,8 +302,9 @@ func (t *Tokenizer) append(v string) {
 
 	if ttype, ok := t.isSQLKeyWord(upperValue); ok {
 		t.result = append(t.result, Token{
-			Type:  ttype,
-			Value: upperValue,
+			Type: ttype,
+			// replace the same case
+			Value: v,
 		})
 	} else {
 		t.result = append(t.result, Token{

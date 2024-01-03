@@ -3,7 +3,7 @@ package group
 import (
 	"bytes"
 
-	"github.com/kanmu/go-sqlfmt/sqlfmt/lexer"
+	"github.com/xkamail/go-sqlfmt/sqlfmt/lexer"
 )
 
 // Update clause

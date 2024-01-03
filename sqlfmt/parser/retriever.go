@@ -3,9 +3,9 @@ package parser
 import (
 	"fmt"
 
-	"github.com/kanmu/go-sqlfmt/sqlfmt/lexer"
-	"github.com/kanmu/go-sqlfmt/sqlfmt/parser/group"
 	"github.com/pkg/errors"
+	"github.com/xkamail/go-sqlfmt/sqlfmt/lexer"
+	"github.com/xkamail/go-sqlfmt/sqlfmt/parser/group"
 )
 
 // Retriever retrieves target SQL clause group from TokenSource

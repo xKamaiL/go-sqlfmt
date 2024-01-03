@@ -15,7 +15,7 @@ import (
 
 	"github.com/pkg/errors"
 
-	"github.com/kanmu/go-sqlfmt/sqlfmt"
+	"github.com/xkamail/go-sqlfmt/sqlfmt"
 )
 
 var (
@@ -46,7 +46,6 @@ func visitFile(path string, info os.FileInfo, err error) error {
 	}
 	if err != nil {
 		processError(errors.Wrap(err, "visit file failed"))
-
 	}
 	return nil
 }
@@ -151,7 +150,7 @@ func diff(b1, b2 []byte) (data []byte, err error) {
 	defer os.Remove(f1.Name())
 	defer f1.Close()
 
-	f2, err := ioutil.TempFile("", "sqlfmt")
+	f2, err := os.CreateTemp("", "sqlfmt")
 	if err != nil {
 		return
 	}

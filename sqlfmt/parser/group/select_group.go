@@ -4,8 +4,8 @@ import (
 	"bytes"
 	"fmt"
 
-	"github.com/kanmu/go-sqlfmt/sqlfmt/lexer"
 	"github.com/pkg/errors"
+	"github.com/xkamail/go-sqlfmt/sqlfmt/lexer"
 )
 
 // Select clause

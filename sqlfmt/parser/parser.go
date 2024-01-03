@@ -1,9 +1,10 @@
 package parser
 
 import (
-	"github.com/kanmu/go-sqlfmt/sqlfmt/lexer"
-	"github.com/kanmu/go-sqlfmt/sqlfmt/parser/group"
 	"github.com/pkg/errors"
+
+	"github.com/xkamail/go-sqlfmt/sqlfmt/lexer"
+	"github.com/xkamail/go-sqlfmt/sqlfmt/parser/group"
 )
 
 // TODO: calling each Retrieve function is not smart, so should be refactored

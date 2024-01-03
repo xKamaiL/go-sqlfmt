@@ -7,7 +7,7 @@ import (
 	"log"
 	"strings"
 
-	"github.com/kanmu/go-sqlfmt/sqlfmt/parser/group"
+	"github.com/xkamail/go-sqlfmt/sqlfmt/parser/group"
 )
 
 // sqlfmt retrieves all strings from "Query" and "QueryRow" and "Exec" functions in .go file
@@ -15,15 +15,20 @@ const (
 	QUERY    = "Query"
 	QUERYROW = "QueryRow"
 	EXEC     = "Exec"
+	ITER     = "Iter"
 )
 
 // replaceAst replace ast node with formatted SQL statement
 func replaceAst(f *ast.File, fset *token.FileSet, options *Options) {
+	distance := 4
+	if options.Distance > 0 {
+		distance = options.Distance
+	}
 	ast.Inspect(f, func(n ast.Node) bool {
 		if x, ok := n.(*ast.CallExpr); ok {
 			if fun, ok := x.Fun.(*ast.SelectorExpr); ok {
 				funcName := fun.Sel.Name
-				if funcName == QUERY || funcName == QUERYROW || funcName == EXEC {
+				if funcName == QUERY || funcName == QUERYROW || funcName == EXEC || funcName == ITER {
 					// not for parsing url.Query
 					if len(x.Args) > 0 {
 						if arg, ok := x.Args[0].(*ast.BasicLit); ok {
@@ -39,7 +44,7 @@ func replaceAst(f *ast.File, fset *token.FileSet, options *Options) {
 							}
 							// FIXME
 							// more elegant
-							arg.Value = "`" + res + strings.Repeat(group.WhiteSpace, options.Distance) + "`"
+							arg.Value = "`" + res + strings.Repeat(group.WhiteSpace, distance) + "`"
 						}
 					}
 				}
